@@ -62,7 +62,7 @@ def banner(name, char):
 
 
 def main():
-    banner('Rollin Bones', '-')
+    banner('Snake Eyes', '-')
     raw_input('\nPress enter to begin\n')
     while True:
 
