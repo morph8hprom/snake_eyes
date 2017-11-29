@@ -5,7 +5,7 @@ sides of dice.  Also saves a log of previous dice rolls in text file dice_log
 
 """
 import random
-
+import time
 
 def roll_em():
 
@@ -34,12 +34,20 @@ def roll_em():
 #Create/open a log file to save dice rolls
 
 def dice_log(die, sides, roll):
+
+    dash = '-' * 4
     f = open("dice_log.txt","a")
+    f.write('\n')
+    f.write(time.strftime('%I:%M:%S'))
+    f.write('\n')
+    f.write(dash)
     f.write('\n{}d{}\n'.format(die, sides))
-    f.write('-'* 4)
-    f.write('\n{}'.format(str(roll)))
-    f.write('\nTotal:')
-    f.write('\n{}'.format(sum(roll)))
+    f.write(dash)
+    f.write('\n{}\n'.format(','.join(map(str, roll))))
+    f.write(dash)
+    f.write('\nTotal\n')
+    f.write(dash)
+    f.write('\n{}\n'.format(sum(roll)))
     f.close
 
 
